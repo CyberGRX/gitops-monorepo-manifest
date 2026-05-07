@@ -56,13 +56,12 @@ impl From<Targets> for Manifest {
         let mut activator_to_target = vec![];
 
         for (name, target) in &targets.targets {
-            let base = vec![target.path.clone()];
+            let base = [target.path.clone()];
             let paths = target
                 .globs
                 .iter()
                 .chain(base.iter())
-                .cloned()
-                .map(|p| (Pattern::new(&p).expect(""), name.clone()));
+                .map(|p| (Pattern::new(p).expect(""), name.clone()));
             path_to_activator.extend(paths);
 
             let activators = target

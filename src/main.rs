@@ -75,7 +75,6 @@ fn write_output(output: &HashMap<String, TargetOutput>) -> Result<()> {
 
     let output_file = std::env::var("GITHUB_OUTPUT")?;
     let mut file = OpenOptions::new()
-        .write(true)
         .append(true)
         .open(output_file)?;
 
@@ -98,7 +97,6 @@ fn write_summary(output: &HashMap<String, TargetOutput>) -> Result<()> {
 
     let summary_file = std::env::var("GITHUB_STEP_SUMMARY")?;
     let mut file = OpenOptions::new()
-        .write(true)
         .append(true)
         .open(summary_file)?;
 
