@@ -74,9 +74,7 @@ fn write_output(output: &HashMap<String, TargetOutput>) -> Result<()> {
     unchanged.sort();
 
     let output_file = std::env::var("GITHUB_OUTPUT")?;
-    let mut file = OpenOptions::new()
-        .append(true)
-        .open(output_file)?;
+    let mut file = OpenOptions::new().append(true).open(output_file)?;
 
     let manifest = serde_json::to_string(&output)?;
     let changed_str = serde_json::to_string(&changed)?;
@@ -96,9 +94,7 @@ fn write_summary(output: &HashMap<String, TargetOutput>) -> Result<()> {
     );
 
     let summary_file = std::env::var("GITHUB_STEP_SUMMARY")?;
-    let mut file = OpenOptions::new()
-        .append(true)
-        .open(summary_file)?;
+    let mut file = OpenOptions::new().append(true).open(summary_file)?;
 
     writeln!(file, "{}", raw_summary)?;
 
