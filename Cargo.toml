@@ -39,5 +39,7 @@ installers = ["shell"]
 install-path = "CARGO_HOME"
 # Whether to install an updater program
 install-updater = false
+# Build full artifact pipeline on PRs (without publishing) for release-pipeline verification
+pr-run-mode = "upload"
 
 
