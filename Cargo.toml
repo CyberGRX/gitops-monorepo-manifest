@@ -43,5 +43,9 @@ install-updater = false
 pr-run-mode = "upload"
 # Sign release artifacts via GitHub Artifact Attestations (Sigstore-backed SLSA provenance)
 github-attestations = true
+# Sign during the `host` phase (only runs on tag-push releases, not PR builds).
+# Default `build-local-artifacts` would try to sign on every PR build, which fails
+# on fork PRs because GitHub does not issue an OIDC id-token to forked workflows.
+github-attestations-phase = "host"
 
 
