@@ -41,5 +41,7 @@ install-path = "CARGO_HOME"
 install-updater = false
 # Build full artifact pipeline on PRs (without publishing) for release-pipeline verification
 pr-run-mode = "upload"
+# Sign release artifacts via GitHub Artifact Attestations (Sigstore-backed SLSA provenance)
+github-attestations = true
 
 
